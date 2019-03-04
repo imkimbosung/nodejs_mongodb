@@ -20,6 +20,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 
 // EJS
 app.use(expressLayouts);
+app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
 // Bodyparser
