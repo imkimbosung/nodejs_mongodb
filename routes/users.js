@@ -7,10 +7,10 @@ const passport = require('passport');
 const User = require('../models/User');
 
 // Login Page
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('../views/loginPages/login'));
 
 // Register Page
-router.get('/register', (req, res) => res.render('register'));
+router.get('/register', (req, res) => res.render('../views/loginPages/register'));
 
 // Register Handle
 router.post('/register', (req, res) =>{
@@ -35,7 +35,7 @@ router.post('/register', (req, res) =>{
     }
     console.log(errors)
     if(errors.length >0) {
-        res.render('register', {
+        res.render('../views/loginPages/register', {
             errors,
             name,
             email,
@@ -50,7 +50,7 @@ router.post('/register', (req, res) =>{
              if(user) {
                 // User exists
                 errors.push({ msg: 'Email is already registered'});
-                res.render('register', {
+                res.render('../views/loginPages/register', {
                     errors,
                     name,
                     email,
